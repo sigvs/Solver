@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{38d85f6a-d8a8-41df-a007-c84b3665806e}</ProjectGuid>
+    <RootNamespace>Solver</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Algoithms\Common\IterationSolution.h" />
+    <ClInclude Include="..\Algoithms\Common\IterationSolver.h" />
+    <ClInclude Include="..\Algoithms\Common\IterationTerminator.h" />
+    <ClInclude Include="..\Algoithms\Common\Solution.h" />
+    <ClInclude Include="..\Algoithms\Common\TimeTerminator.h" />
+    <ClInclude Include="..\Algoithms\Evolutional\EvolutionalAlgorithm.h" />
+    <ClInclude Include="..\Algoithms\Evolutional\Population.h" />
+    <ClInclude Include="..\Algoithms\Evolutional\RandomSelection.h" />
+    <ClInclude Include="..\Algoithms\GA\AddPopWorseDead.h" />
+    <ClInclude Include="..\Algoithms\GA\AddPopWorseOrDubDead.h" />
+    <ClInclude Include="..\Algoithms\GA\GA.h" />
+    <ClInclude Include="..\Algoithms\GA\OnePointCrossover.h" />
+    <ClInclude Include="..\Algoithms\MemeticGA\MemeticGA.h" />
+    <ClInclude Include="..\Algoithms\SEMO\IncreasePopulationIfNotWorse.h" />
+    <ClInclude Include="..\Interface\IArray.h" />
+    <ClInclude Include="..\Interface\ICloneable.h" />
+    <ClInclude Include="..\Interface\ICompareable.h" />
+    <ClInclude Include="..\Interface\ICopyable.h" />
+    <ClInclude Include="..\Interface\IGenerative.h" />
+    <ClInclude Include="..\Interface\IRemoveable.h" />
+    <ClInclude Include="..\Interface\ISolver.h" />
+    <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDProblem.h" />
+    <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\defs.h" />
+    <ClInclude Include="..\Problems\MachineLineProblem\Buffer.h" />
+    <ClInclude Include="..\Problems\MachineLineProblem\Machine.h" />
+    <ClInclude Include="..\Problems\MachineLineProblem\MachineLine.h" />
+    <ClInclude Include="..\Problems\MachineLineProblem\MLPBruteForceNextSolutionGeneration.h" />
+    <ClInclude Include="..\Problems\MachineLineProblem\MLPDeltaPlusMutation.h" />
+    <ClInclude Include="..\Problems\MachineLineProblem\MLPPopulation.h" />
+    <ClInclude Include="..\Problems\MachineLineProblem\MLPPopulationList.h" />
+    <ClInclude Include="..\Problems\MachineLineProblem\MLProblem.h" />
+    <ClInclude Include="..\Problems\MachineLineProblem\MLPSolution.h" />
+    <ClInclude Include="..\Problems\MachineLineProblem\MLPSQLite3.h" />
+    <ClInclude Include="..\Problems\MachineLineProblem\WorkStation.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Algoithms\Common\IterationSolution.cpp" />
+    <ClCompile Include="..\Algoithms\Common\IterationSolver.cpp" />
+    <ClCompile Include="..\Algoithms\Common\IterationTerminator.cpp" />
+    <ClCompile Include="..\Algoithms\Common\Solution.cpp" />
+    <ClCompile Include="..\Algoithms\Common\TimeTerminator.cpp" />
+    <ClCompile Include="..\Algoithms\Evolutional\EvolutionalAlgorithm.cpp" />
+    <ClCompile Include="..\Algoithms\Evolutional\RandomSelection.cpp" />
+    <ClCompile Include="..\Algoithms\GA\AddPopWorseDead.cpp" />
+    <ClCompile Include="..\Algoithms\GA\AddPopWorseOrDubDead.cpp" />
+    <ClCompile Include="..\Algoithms\GA\GA.cpp" />
+    <ClCompile Include="..\Algoithms\GA\OnePointCrossover.cpp" />
+    <ClCompile Include="..\Algoithms\MemeticGA\MemeticGA.cpp" />
+    <ClCompile Include="..\Algoithms\SEMO\IncreasePopulationIfNotWorse.cpp" />
+    <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDProblem.cpp" />
+    <ClCompile Include="..\Problems\MachineLineProblem\Buffer.cpp" />
+    <ClCompile Include="..\Problems\MachineLineProblem\Implementations\MLPSEMO.cpp" />
+    <ClCompile Include="..\Problems\MachineLineProblem\Machine.cpp" />
+    <ClCompile Include="..\Problems\MachineLineProblem\MachineLine.cpp" />
+    <ClCompile Include="..\Problems\MachineLineProblem\MLPBruteForceNextSolutionGeneration.cpp" />
+    <ClCompile Include="..\Problems\MachineLineProblem\MLPDeltaPlusMutation.cpp" />
+    <ClCompile Include="..\Problems\MachineLineProblem\MLPPopulation.cpp" />
+    <ClCompile Include="..\Problems\MachineLineProblem\MLPPopulationList.cpp" />
+    <ClCompile Include="..\Problems\MachineLineProblem\MLProblem.cpp" />
+    <ClCompile Include="..\Problems\MachineLineProblem\MLPSolution.cpp" />
+    <ClCompile Include="..\Problems\MachineLineProblem\WorkStation.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

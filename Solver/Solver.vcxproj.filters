@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Interface">
+      <UniqueIdentifier>{5a23a381-099a-4e57-9d7f-5b221cee1d27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Problems">
+      <UniqueIdentifier>{344cde72-1105-41a8-a452-f52dd0b0c5a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Algorithms">
+      <UniqueIdentifier>{386fb4e5-c234-45a5-8428-48ab0d70ba03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Problems\MachineLineProblem">
+      <UniqueIdentifier>{fe4464cf-5f88-480d-899d-754b649fef75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Algorithms\GA">
+      <UniqueIdentifier>{8883b1ec-2e7e-4e0c-b45d-38de16714910}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Algorithms\Evolutional">
+      <UniqueIdentifier>{af3d517c-51c8-4e3e-9dea-06839c4877b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Algorithms\Common">
+      <UniqueIdentifier>{64bfcf41-7960-47a1-9b79-1162b2cdbf1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Algorithms\MemeticGA">
+      <UniqueIdentifier>{5d1830ce-a27e-4c2f-a9f6-46188c070733}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Algorithms\SEMO">
+      <UniqueIdentifier>{332f6315-87e0-44ee-a13e-ab6e7178d063}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Problems\MachineLineProblem\Implementations">
+      <UniqueIdentifier>{344041a4-d825-4fcc-bbe1-d7c0166790d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Problems\CompetitiveFacilityLocationDesignProblem">
+      <UniqueIdentifier>{26dac532-ff91-44d9-b470-25a9eb5e8686}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Interface\ICloneable.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Interface\ICompareable.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Interface\ICopyable.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Interface\IGenerative.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Interface\IRemoveable.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Interface\ISolver.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Problems\MachineLineProblem\Buffer.h">
+      <Filter>Problems\MachineLineProblem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Problems\MachineLineProblem\Machine.h">
+      <Filter>Problems\MachineLineProblem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Problems\MachineLineProblem\MachineLine.h">
+      <Filter>Problems\MachineLineProblem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Problems\MachineLineProblem\MLPBruteForceNextSolutionGeneration.h">
+      <Filter>Problems\MachineLineProblem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Problems\MachineLineProblem\MLPDeltaPlusMutation.h">
+      <Filter>Problems\MachineLineProblem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Problems\MachineLineProblem\MLProblem.h">
+      <Filter>Problems\MachineLineProblem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Problems\MachineLineProblem\MLPSolution.h">
+      <Filter>Problems\MachineLineProblem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Problems\MachineLineProblem\MLPSQLite3.h">
+      <Filter>Problems\MachineLineProblem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Problems\MachineLineProblem\WorkStation.h">
+      <Filter>Problems\MachineLineProblem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Algoithms\Common\IterationSolution.h">
+      <Filter>Algorithms\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Algoithms\Common\IterationSolver.h">
+      <Filter>Algorithms\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Algoithms\Common\Solution.h">
+      <Filter>Algorithms\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Algoithms\GA\AddPopWorseDead.h">
+      <Filter>Algorithms\GA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Algoithms\GA\AddPopWorseOrDubDead.h">
+      <Filter>Algorithms\GA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Algoithms\GA\GA.h">
+      <Filter>Algorithms\GA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Algoithms\GA\OnePointCrossover.h">
+      <Filter>Algorithms\GA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Algoithms\Evolutional\EvolutionalAlgorithm.h">
+      <Filter>Algorithms\Evolutional</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Algoithms\Evolutional\Population.h">
+      <Filter>Algorithms\Evolutional</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Algoithms\Evolutional\RandomSelection.h">
+      <Filter>Algorithms\Evolutional</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Algoithms\MemeticGA\MemeticGA.h">
+      <Filter>Algorithms\MemeticGA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Interface\IArray.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Algoithms\Common\IterationTerminator.h">
+      <Filter>Algorithms\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Algoithms\Common\TimeTerminator.h">
+      <Filter>Algorithms\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Problems\MachineLineProblem\MLPPopulation.h">
+      <Filter>Problems\MachineLineProblem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Problems\MachineLineProblem\MLPPopulationList.h">
+      <Filter>Problems\MachineLineProblem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Algoithms\SEMO\IncreasePopulationIfNotWorse.h">
+      <Filter>Algorithms\SEMO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDProblem.h">
+      <Filter>Problems\CompetitiveFacilityLocationDesignProblem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\defs.h">
+      <Filter>Problems\CompetitiveFacilityLocationDesignProblem</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Problems\MachineLineProblem\Buffer.cpp">
+      <Filter>Problems\MachineLineProblem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Problems\MachineLineProblem\Machine.cpp">
+      <Filter>Problems\MachineLineProblem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Problems\MachineLineProblem\MachineLine.cpp">
+      <Filter>Problems\MachineLineProblem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Problems\MachineLineProblem\MLPBruteForceNextSolutionGeneration.cpp">
+      <Filter>Problems\MachineLineProblem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Problems\MachineLineProblem\MLPDeltaPlusMutation.cpp">
+      <Filter>Problems\MachineLineProblem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Problems\MachineLineProblem\MLProblem.cpp">
+      <Filter>Problems\MachineLineProblem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Problems\MachineLineProblem\MLPSolution.cpp">
+      <Filter>Problems\MachineLineProblem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Problems\MachineLineProblem\WorkStation.cpp">
+      <Filter>Problems\MachineLineProblem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Algoithms\Common\IterationSolution.cpp">
+      <Filter>Algorithms\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Algoithms\Common\IterationSolver.cpp">
+      <Filter>Algorithms\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Algoithms\Common\Solution.cpp">
+      <Filter>Algorithms\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Algoithms\GA\AddPopWorseDead.cpp">
+      <Filter>Algorithms\GA</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Algoithms\GA\AddPopWorseOrDubDead.cpp">
+      <Filter>Algorithms\GA</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Algoithms\GA\GA.cpp">
+      <Filter>Algorithms\GA</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Algoithms\GA\OnePointCrossover.cpp">
+      <Filter>Algorithms\GA</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Algoithms\Evolutional\EvolutionalAlgorithm.cpp">
+      <Filter>Algorithms\Evolutional</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Algoithms\Evolutional\RandomSelection.cpp">
+      <Filter>Algorithms\Evolutional</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Algoithms\MemeticGA\MemeticGA.cpp">
+      <Filter>Algorithms\MemeticGA</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\Algoithms\Common\IterationTerminator.cpp">
+      <Filter>Algorithms\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Algoithms\Common\TimeTerminator.cpp">
+      <Filter>Algorithms\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Problems\MachineLineProblem\MLPPopulation.cpp">
+      <Filter>Problems\MachineLineProblem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Problems\MachineLineProblem\MLPPopulationList.cpp">
+      <Filter>Problems\MachineLineProblem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Algoithms\SEMO\IncreasePopulationIfNotWorse.cpp">
+      <Filter>Algorithms\SEMO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Problems\MachineLineProblem\Implementations\MLPSEMO.cpp">
+      <Filter>Problems\MachineLineProblem\Implementations</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDProblem.cpp">
+      <Filter>Problems\CompetitiveFacilityLocationDesignProblem</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
