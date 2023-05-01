@@ -34,6 +34,9 @@
     <Filter Include="Problems\CompetitiveFacilityLocationDesignProblem">
       <UniqueIdentifier>{26dac532-ff91-44d9-b470-25a9eb5e8686}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Problems\CompetitiveFacilityLocationDesignProblem\Implementations">
+      <UniqueIdentifier>{0a6f658d-32f5-4f6c-93f9-343333c112e5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Interface\ICloneable.h">
@@ -135,7 +138,13 @@
     <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDProblem.h">
       <Filter>Problems\CompetitiveFacilityLocationDesignProblem</Filter>
     </ClInclude>
-    <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\defs.h">
+    <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPSolution.h">
+      <Filter>Problems\CompetitiveFacilityLocationDesignProblem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Algoithms\Evolutional\PopulationUseList.h">
+      <Filter>Algorithms\Evolutional</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPPopulationList.h">
       <Filter>Problems\CompetitiveFacilityLocationDesignProblem</Filter>
     </ClInclude>
   </ItemGroup>
@@ -214,6 +223,18 @@
       <Filter>Problems\MachineLineProblem\Implementations</Filter>
     </ClCompile>
     <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDProblem.cpp">
+      <Filter>Problems\CompetitiveFacilityLocationDesignProblem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\Implementations\CFLDPSEMO.cpp">
+      <Filter>Problems\CompetitiveFacilityLocationDesignProblem\Implementations</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPSolution.cpp">
+      <Filter>Problems\CompetitiveFacilityLocationDesignProblem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Algoithms\Evolutional\PopulationUseList.cpp">
+      <Filter>Algorithms\Evolutional</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPPopulationList.cpp">
       <Filter>Problems\CompetitiveFacilityLocationDesignProblem</Filter>
     </ClCompile>
   </ItemGroup>

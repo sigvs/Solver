@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -134,6 +134,7 @@
     <ClInclude Include="..\Algoithms\Common\TimeTerminator.h" />
     <ClInclude Include="..\Algoithms\Evolutional\EvolutionalAlgorithm.h" />
     <ClInclude Include="..\Algoithms\Evolutional\Population.h" />
+    <ClInclude Include="..\Algoithms\Evolutional\PopulationUseList.h" />
     <ClInclude Include="..\Algoithms\Evolutional\RandomSelection.h" />
     <ClInclude Include="..\Algoithms\GA\AddPopWorseDead.h" />
     <ClInclude Include="..\Algoithms\GA\AddPopWorseOrDubDead.h" />
@@ -148,8 +149,9 @@
     <ClInclude Include="..\Interface\IGenerative.h" />
     <ClInclude Include="..\Interface\IRemoveable.h" />
     <ClInclude Include="..\Interface\ISolver.h" />
+    <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPPopulationList.h" />
     <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDProblem.h" />
-    <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\defs.h" />
+    <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPSolution.h" />
     <ClInclude Include="..\Problems\MachineLineProblem\Buffer.h" />
     <ClInclude Include="..\Problems\MachineLineProblem\Machine.h" />
     <ClInclude Include="..\Problems\MachineLineProblem\MachineLine.h" />
@@ -169,6 +171,7 @@
     <ClCompile Include="..\Algoithms\Common\Solution.cpp" />
     <ClCompile Include="..\Algoithms\Common\TimeTerminator.cpp" />
     <ClCompile Include="..\Algoithms\Evolutional\EvolutionalAlgorithm.cpp" />
+    <ClCompile Include="..\Algoithms\Evolutional\PopulationUseList.cpp" />
     <ClCompile Include="..\Algoithms\Evolutional\RandomSelection.cpp" />
     <ClCompile Include="..\Algoithms\GA\AddPopWorseDead.cpp" />
     <ClCompile Include="..\Algoithms\GA\AddPopWorseOrDubDead.cpp" />
@@ -176,7 +179,10 @@
     <ClCompile Include="..\Algoithms\GA\OnePointCrossover.cpp" />
     <ClCompile Include="..\Algoithms\MemeticGA\MemeticGA.cpp" />
     <ClCompile Include="..\Algoithms\SEMO\IncreasePopulationIfNotWorse.cpp" />
+    <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPPopulationList.cpp" />
     <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDProblem.cpp" />
+    <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPSolution.cpp" />
+    <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\Implementations\CFLDPSEMO.cpp" />
     <ClCompile Include="..\Problems\MachineLineProblem\Buffer.cpp" />
     <ClCompile Include="..\Problems\MachineLineProblem\Implementations\MLPSEMO.cpp" />
     <ClCompile Include="..\Problems\MachineLineProblem\Machine.cpp" />

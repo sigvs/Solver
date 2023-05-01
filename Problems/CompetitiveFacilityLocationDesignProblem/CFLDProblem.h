@@ -1,12 +1,26 @@
-#pragma once
-
-#include <memory>
+#ifndef HPP_CFLDPROBLEM_HPP
+#define HPP_CFLDPROBLEM_HPP
+#include <vector>
 #include <iostream>
+#include <chrono>
+#include <string>
+#include <utility>
+#include <string.h>
+#include <memory>
 #include <fstream>
 #include <string>
-#include "defs.h"
+#include "..\..\Interface\ISolver.h"
 
-class CFLDProblem
+typedef std::vector<int>								iVector;
+typedef std::vector<double>								dVector;
+typedef std::vector<std::vector<double>>				dMatrix;
+typedef std::vector<std::vector<std::vector<double>>>	ddMatrix;
+typedef std::vector<std::vector<int>>					iMatrix;
+typedef std::chrono::high_resolution_clock				Clock;
+typedef std::chrono::duration<double>					Seconds;
+typedef std::pair <iVector, double> 						fv_obj;
+
+class CFLDProblem:public ISolver
 {
 private:
 	int 			N;		// number of demand points
@@ -19,8 +33,8 @@ private:
 	dMatrix 		dist;	// distance matrix
 	ddMatrix 		K;	// N x N
 	dMatrix 		attr;// attractiveness
-	iVector			initial_r;
-	iVector			is_mine;
+	iVector			initial_r;//используется для сортировки
+	iVector			is_mine;//возможно открытие предприятия, никем не занятые
 	iVector			index;	// original index
 	bool 			verbose = true;
 	int 			R = 3;
@@ -37,6 +51,7 @@ public:
 	friend bool operator==(const CFLDProblem &CFLDProblem1, const CFLDProblem &CFLDProblem2);
 	~CFLDProblem();
 	void print_problem();
+	void read_problem(std::ifstream& in);
 	double objective_function(const iVector& fv);
 	//fv_obj upper_bound_calculate(iMatrix &x_constrain);
 	void greedy();
@@ -47,4 +62,9 @@ public:
 	int getB();
 	int getN();
 	int getS();
+
+	// Унаследовано через ISolver
+	virtual SolverResult eSolve(void*, ...) override;
 };
+
+#endif
