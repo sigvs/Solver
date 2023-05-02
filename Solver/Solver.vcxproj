@@ -150,6 +150,7 @@
     <ClInclude Include="..\Interface\IRemoveable.h" />
     <ClInclude Include="..\Interface\ISolver.h" />
     <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPPopulationList.h" />
+    <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPRandomOpenRandom.h" />
     <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDProblem.h" />
     <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPSolution.h" />
     <ClInclude Include="..\Problems\MachineLineProblem\Buffer.h" />
@@ -180,6 +181,7 @@
     <ClCompile Include="..\Algoithms\MemeticGA\MemeticGA.cpp" />
     <ClCompile Include="..\Algoithms\SEMO\IncreasePopulationIfNotWorse.cpp" />
     <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPPopulationList.cpp" />
+    <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPRandomOpenRandom.cpp" />
     <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDProblem.cpp" />
     <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPSolution.cpp" />
     <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\Implementations\CFLDPSEMO.cpp" />

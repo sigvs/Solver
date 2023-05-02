@@ -63,7 +63,7 @@ void CFLDPSolution::Generate(void* x_, ...)
 	int b = problem->getB(), n = problem->getS();
 	int k3 = std::min(b / 3, n);
 	for (int i = 0; i < k3; ++i) {
-		_DesignVariant[i] = 3;
+		this->_DesignVariant[i] = 3;
 	}
 	b -= 3 * k3;
 	n -= k3;
@@ -72,7 +72,7 @@ void CFLDPSolution::Generate(void* x_, ...)
 	}
 	int k2 = std::min(b / 2, n);
 	for (int i = 0; i < k2; ++i) {
-		_DesignVariant[k3 + i] = 2;
+		this->_DesignVariant[k3 + i] = 2;
 	}
 	b -= 2 * k2;
 	n -= k2;
@@ -81,14 +81,14 @@ void CFLDPSolution::Generate(void* x_, ...)
 	}
 	int k1 = std::min(b, n);
 	for (int i = 0; i < k1; ++i) {
-		_DesignVariant[k3 + k2 + i] = 1;
+		this->_DesignVariant[k3 + k2 + i] = 1;
 	}
 	n -= k1;
 	if (n <= 0) {
 		return;
 	}
 	for (int i = k1 + k2 + k3; i < problem->getS(); ++i) {
-		_DesignVariant[i] = 0;
+		this->_DesignVariant[i] = 0;
 	}
 
 	this->SetValue((ISolver*)problem);

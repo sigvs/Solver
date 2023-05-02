@@ -6,11 +6,6 @@
 #include <ctime>
 #include "CFLDProblem.h"
 //#include "gurobi_c++.h"
-using namespace std;
-
-CFLDProblem::CFLDProblem(std::istream& in, std::string file){
-	filename = file;
-}
 
 CFLDProblem::CFLDProblem(const CFLDProblem &CFLDProblem){
 	filename = CFLDProblem.filename;
@@ -171,13 +166,12 @@ int CFLDProblem::getS(){
 
 SolverResult CFLDProblem::eSolve(void* x_, ...)
 {
-	/*
 	void** hx = &x_;
-	IVector* fv = (IVector*)(hx[0]);
+	iVector* fv = (iVector*)(hx[0]);
 	double* _CaptureShare = (double*)(hx[1]);
 
-	_CaptureShare = objective_function(fv);
-	*/
+	*_CaptureShare = objective_function(*fv);
+
 	return SolutionFound;
 }
 

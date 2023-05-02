@@ -5,6 +5,7 @@
 #include "../../../Algoithms/SEMO/IncreasePopulationIfNotWorse.h"
 #include "../../../Algoithms/Common/IterationTerminator.h"
 #include "../CFLDPPopulationList.h"
+#include "../CFLDPRandomOpenRandom.h"
 using namespace std;
 
 inline int cfldpSEMO(int argc, char* argv[])
@@ -12,7 +13,7 @@ inline int cfldpSEMO(int argc, char* argv[])
 	srand(time(0));
 
 	ifstream in;
-	string filename = "ancelin1.prb";
+	string filename = "data.60.3_1.txt";
 	if (argc > 1)filename = argv[1];
 	in.open(filename, ifstream::in);
 
@@ -33,8 +34,8 @@ inline int cfldpSEMO(int argc, char* argv[])
 
 	RandomSelection sel;
 
-	//MLPDeltaPlusMutation mut;
-	//mut.SetDeltaMutation(5);
+	CFLDPRandomOpenRandom mut;
+	mut.SetS(5);
 
 	IncreasePopulationIfNotWorse add;
 
@@ -49,7 +50,7 @@ inline int cfldpSEMO(int argc, char* argv[])
 	alg.pParents = &parents;
 	alg.pChildren = &child;
 	alg.pSelection = &sel;
-	//alg.pMutation = &mut;
+	alg.pMutation = &mut;
 	alg.pAdder = &add;
 	alg.pTerminator = &ter;
 	alg.eSolve(&z);

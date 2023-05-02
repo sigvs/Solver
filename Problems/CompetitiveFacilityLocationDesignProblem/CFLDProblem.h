@@ -11,6 +11,8 @@
 #include <string>
 #include "..\..\Interface\ISolver.h"
 
+using namespace std;
+
 typedef std::vector<int>								iVector;
 typedef std::vector<double>								dVector;
 typedef std::vector<std::vector<double>>				dMatrix;
@@ -44,7 +46,6 @@ private:
 	iVector			greedy_fv;
 	std::string		filename;
 public:
-	CFLDProblem(std::istream& in, std::string file);
 	CFLDProblem();
 	CFLDProblem(const CFLDProblem &CFLDProblem);
 	CFLDProblem & operator=(const CFLDProblem &CFLDProblem);

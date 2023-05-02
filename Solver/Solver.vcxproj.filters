@@ -147,6 +147,9 @@
     <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPPopulationList.h">
       <Filter>Problems\CompetitiveFacilityLocationDesignProblem</Filter>
     </ClInclude>
+    <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPRandomOpenRandom.h">
+      <Filter>Problems\CompetitiveFacilityLocationDesignProblem</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Problems\MachineLineProblem\Buffer.cpp">
@@ -235,6 +238,9 @@
       <Filter>Algorithms\Evolutional</Filter>
     </ClCompile>
     <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPPopulationList.cpp">
+      <Filter>Problems\CompetitiveFacilityLocationDesignProblem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPRandomOpenRandom.cpp">
       <Filter>Problems\CompetitiveFacilityLocationDesignProblem</Filter>
     </ClCompile>
   </ItemGroup>
