@@ -11,6 +11,9 @@ class CFLDPSolution :public IterationSolution, IArray<long>
     protected:
         int _Size;
         iVector _DesignVariant;
+        iVector _DeviationDemand;
+
+        double _RobustRadius;
         double _CaptureShare;
 	public:
         CFLDPSolution();
@@ -29,6 +32,7 @@ class CFLDPSolution :public IterationSolution, IArray<long>
         int& DesignVariant(int);
 
         double CaptureShare()const;
+        double RobustRadius()const;
 
         virtual bool bEqual (void*)const;
         virtual bool bNotEqual (void*)const;

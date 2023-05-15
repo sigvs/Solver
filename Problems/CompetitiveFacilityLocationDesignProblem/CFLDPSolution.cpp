@@ -122,7 +122,7 @@ bool CFLDPSolution::bNotEqual (void* x)const
 bool CFLDPSolution::bWorse (void* x)const
 {
 	CFLDPSolution* y = (CFLDPSolution*)(x);
-	return (_CaptureShare < y->CaptureShare());
+	return (_CaptureShare < y->CaptureShare() && _RobustRadius < y->RobustRadius());
 };
 //************************************************************************************************/
 bool CFLDPSolution::bBetter (void* x)const

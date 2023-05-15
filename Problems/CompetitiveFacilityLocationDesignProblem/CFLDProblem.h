@@ -25,6 +25,7 @@ typedef std::pair <iVector, double> 						fv_obj;
 class CFLDProblem:public ISolver
 {
 private:
+	double			W;
 	int 			N;		// number of demand points
 	int 			B;		// the total budget available
 	double 			beta;	// the distance sensitivity parameter, beta > 0

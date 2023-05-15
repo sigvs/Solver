@@ -167,10 +167,26 @@ int CFLDProblem::getS(){
 SolverResult CFLDProblem::eSolve(void* x_, ...)
 {
 	void** hx = &x_;
-	iVector* fv = (iVector*)(hx[0]);
-	double* _CaptureShare = (double*)(hx[1]);
+	iVector* _DesignVariant = (iVector*)(hx[0]);
+	iVector* _DeviationDemand = (iVector*)(hx[1]);
+	double* _CaptureShare = (double*)(hx[2]);
+	double* _RobustRadius = (double*)(hx[3]);
 
-	*_CaptureShare = objective_function(*fv);
+	double z = 0;
+	for (int i = 0; i < N; ++i) {
+		double s = 0;
+		for (int j = 0; j < S; ++j) {
+			if (*_DesignVariant[j]) {
+				s += K[i][index[j]][*_DesignVariant[j] - 1];
+			}
+		}
+		z += omega[i] * (1 - exp(-lambda * (s + UC[i]))) * (s / (s + UC[i]));
+	}
+
+
+
+
+	*_CaptureShare = objective_function(*_DesignVariant);
 
 	return SolutionFound;
 }
@@ -190,7 +206,7 @@ void CFLDProblem::print_problem(){
 
 void CFLDProblem::read_problem(ifstream& in)
 {
-	in >> N >> B >> beta >> lambda;
+	in >> N >> B >> beta >> lambda >> W;
 
 	omega.resize(N);
 	UC.resize(N);
