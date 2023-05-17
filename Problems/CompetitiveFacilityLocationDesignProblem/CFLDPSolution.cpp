@@ -5,12 +5,14 @@ CFLDPSolution::CFLDPSolution()
 {
 		_Size = 0;
 		_CaptureShare = 0.0;
+		_RobustRadius = 0.0;
 };
 //************************************************************************************************/
 CFLDPSolution::CFLDPSolution(const CFLDPSolution& x)
 {
 		_Size = 0;
 		_CaptureShare = 0.0;
+		_RobustRadius = 0.0;
         *this = x;
 };
 //************************************************************************************************/
@@ -18,9 +20,13 @@ void CFLDPSolution::operator = (const CFLDPSolution& x)
 {
     IterationSolution::operator = (x);
     if(_Size !=x._Size)SetSize(x._Size);
-    for(int i=0;i< _Size;i++)
-		_DesignVariant[i]=x._DesignVariant[i];
-	_CaptureShare =x._CaptureShare;
+	for (int i = 0; i < _Size; i++)
+	{
+		_DesignVariant[i] = x._DesignVariant[i];
+		_DeviationDemand[i] = x._DeviationDemand[i];
+	}
+	_CaptureShare = x._CaptureShare;
+	_RobustRadius = x._RobustRadius;
 };
 //************************************************************************************************/
 CFLDPSolution::~CFLDPSolution()
@@ -31,12 +37,15 @@ CFLDPSolution::~CFLDPSolution()
 void CFLDPSolution::GetMemory()
 {
 	_DesignVariant.resize(_Size);
+	_DeviationDemand.resize(_Size);
 };
 //************************************************************************************************/
 void CFLDPSolution::FreeMemory()
 {
 	_DesignVariant.clear();
-	_CaptureShare =0.0;
+	_DeviationDemand.clear();
+	_CaptureShare = 0.0;
+	_RobustRadius = 0.0;
 };
 //************************************************************************************************/
 void CFLDPSolution::SetSize(int s)
@@ -52,7 +61,7 @@ int CFLDPSolution::GetSize()const
 //************************************************************************************************/
 void CFLDPSolution::SetValue(ISolver* x)
 {
-	x->eSolve(&_DesignVariant,&_CaptureShare);
+	x->eSolve(&_DesignVariant,&_DeviationDemand,&_CaptureShare,&_RobustRadius);
 };//************************************************************************************************/
 void CFLDPSolution::Generate(void* x_, ...)
 {
@@ -91,6 +100,12 @@ void CFLDPSolution::Generate(void* x_, ...)
 		this->_DesignVariant[i] = 0;
 	}
 
+	for (int i = 0; i < problem->getN(); i++)
+	{
+		this->DeviationDemand(i) = rand() % (problem->getw(i) + 1);
+	}
+
+
 	this->SetValue((ISolver*)problem);
 };
 //************************************************************************************************/
@@ -99,19 +114,30 @@ bool CFLDPSolution::bEqual (void* x)const
 	CFLDPSolution* y = (CFLDPSolution*)(x);
 	if(_Size!=y->_Size)return false;
 	else
-        if(_CaptureShare !=y->CaptureShare())return false;
+        if(_CaptureShare !=y->CaptureShare() || _RobustRadius != y->RobustRadius())return false;
 	return true;
 };
 //************************************************************************************************/
 int& CFLDPSolution::DesignVariant(int i)
 {
-     if(i<_Size)return _DesignVariant[i];
-     else abort();
+	if (i < _Size)return _DesignVariant[i];
+	else abort();
+};
+//************************************************************************************************/
+int& CFLDPSolution::DeviationDemand(int i)
+{
+	if (i < _Size)return _DeviationDemand[i];
+	else abort();
 };
 //************************************************************************************************/
 double CFLDPSolution::CaptureShare()const
 {
 	return _CaptureShare;
+};
+//************************************************************************************************/
+double CFLDPSolution::RobustRadius()const
+{
+	return _RobustRadius;
 };
 //************************************************************************************************/
 bool CFLDPSolution::bNotEqual (void* x)const
@@ -128,19 +154,19 @@ bool CFLDPSolution::bWorse (void* x)const
 bool CFLDPSolution::bBetter (void* x)const
 {
 	CFLDPSolution* y = (CFLDPSolution*)(x);
-	return (_CaptureShare > y->CaptureShare());
+	return (_CaptureShare > y->CaptureShare() && _RobustRadius > y->RobustRadius());
 };
 //************************************************************************************************/
 bool CFLDPSolution::bBetterOrEqual (void* x)const
 {
 	CFLDPSolution* y = (CFLDPSolution*)(x);
-	return (_CaptureShare >= y->CaptureShare());
+	return (_CaptureShare >= y->CaptureShare() && _RobustRadius >= y->RobustRadius());
 };
 //************************************************************************************************/
 bool CFLDPSolution::bWorseOrEqual (void* x)const
 {
 	CFLDPSolution* y = (CFLDPSolution*)(x);
-	return (_CaptureShare <= y->CaptureShare());
+	return (_CaptureShare <= y->CaptureShare() && _RobustRadius <= y->RobustRadius());
 
 };
 //************************************************************************************************/
@@ -150,7 +176,7 @@ bool CFLDPSolution::bIdentical(void* x)const
 	if(_Size!=y->_Size)return false;
 	else
 		for(int i=0;i< _Size;i++)
-			if(_DesignVariant[i]!=y->DesignVariant(i))return false;
+			if(_DesignVariant[i]!=y->DesignVariant(i) && _DeviationDemand[i]!=y->DeviationDemand(i))return false;
 	return true;
 };
 //************************************************************************************************/
@@ -178,6 +204,8 @@ ofstream& operator <<(ofstream& out , CFLDPSolution& x)
 	{
 		for (int i = 0; i < x._Size; i++)
 			out << left << std::setw(3) << x.DesignVariant(i) << ";";
+		for (int i = 0; i < x._Size; i++)
+			out << left << std::setw(3) << x.DeviationDemand(i) << ";";
 	}
 	out << endl;
   return out;
@@ -190,6 +218,9 @@ ostream& operator <<(ostream& out , CFLDPSolution& x)
 	{
 		for (int i = 0; i < x._Size; i++)
 			out << left << std::setw(3) << x.DesignVariant(i) << ";";
+		for (int i = 0; i < x._Size; i++)
+			out << left << std::setw(3) << x.DeviationDemand(i) << ";";
+
 	}
 	out << endl;
 	return out;
@@ -200,17 +231,4 @@ void* CFLDPSolution::Clone() const
     CFLDPSolution* p = new CFLDPSolution(*this);
     return p;
 }
-long CFLDPSolution::GetElement(size_t i)
-{
-	return _DesignVariant[i];
-}
-void CFLDPSolution::SetElement(size_t i, long v)
-{
-	_DesignVariant[i] = v;
-}
-size_t CFLDPSolution::GetElementCount()
-{
-	return _Size;
-}
-;
-//************************************************************************************************
+//************************************************************************************************/

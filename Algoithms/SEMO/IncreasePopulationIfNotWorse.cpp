@@ -35,15 +35,16 @@ void IncreasePopulationIfNotWorse::AddOne(ISolver* problem, Population* pop, Sol
 	{
 		bool b = true;
 		int i = pop->GetPopulationSize()-1;
+		Solution* sol = pop->pGetIndividPoint(i);
 		while(true)
 		{
-			if(Child->bWorseOrEqual(pop->pGetIndividPoint(i)))
+			if(Child->bWorseOrEqual(sol))
 			{
 				b = false;
 				break;
 			}
 
-			if( Child->bBetterOrEqual(pop->pGetIndividPoint(i)))	
+			if( Child->bBetterOrEqual(sol))	
 				pop->RemoveIndividByIndex(i);
 			i--;
 			if(i<0)break;

@@ -6,6 +6,7 @@
 #include "../../../Algoithms/Common/IterationTerminator.h"
 #include "../CFLDPPopulationList.h"
 #include "../CFLDPRandomOpenRandom.h"
+#include "../CFLDPMutation.h"
 using namespace std;
 
 inline int cfldpSEMO(int argc, char* argv[])
@@ -34,8 +35,9 @@ inline int cfldpSEMO(int argc, char* argv[])
 
 	RandomSelection sel;
 
-	CFLDPRandomOpenRandom mut;
-	mut.SetS(5);
+	CFLDPMutation mut;
+	mut.SetVariantParametr(5);
+	mut.SetDeviationDemandMutationParametr(z.getN()/2);
 
 	IncreasePopulationIfNotWorse add;
 
@@ -61,6 +63,9 @@ inline int cfldpSEMO(int argc, char* argv[])
 	myfile <<  "Debit;";
 	for (int j = 0; j < z.getN(); j++)
 		myfile << "Buffer_" << j << ';';
+	for (int j = 0; j < z.getN(); j++)
+		myfile << "Buffer_" << j << ';';
+
 	myfile << endl;
 
 /*

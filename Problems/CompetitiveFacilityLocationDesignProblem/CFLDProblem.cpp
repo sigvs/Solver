@@ -13,6 +13,7 @@ CFLDProblem::CFLDProblem(const CFLDProblem &CFLDProblem){
 	B = CFLDProblem.B;
 	beta = CFLDProblem.beta;
 	lambda = CFLDProblem.lambda;
+	W = CFLDProblem.W;
 
 	omega.resize(N);
 	UC.resize(N);
@@ -79,6 +80,7 @@ CFLDProblem& CFLDProblem::operator=(const CFLDProblem &CFLDProblem){
 	B = CFLDProblem.B;
 	beta = CFLDProblem.beta;
 	lambda = CFLDProblem.lambda;
+	W = CFLDProblem.W;
 
 	omega.resize(N);
 	UC.resize(N);
@@ -164,6 +166,10 @@ int CFLDProblem::getS(){
 	return S;
 }
 
+int CFLDProblem::getw(int i) {
+	return omega[i];
+}
+
 SolverResult CFLDProblem::eSolve(void* x_, ...)
 {
 	void** hx = &x_;
@@ -172,21 +178,35 @@ SolverResult CFLDProblem::eSolve(void* x_, ...)
 	double* _CaptureShare = (double*)(hx[2]);
 	double* _RobustRadius = (double*)(hx[3]);
 
-	double z = 0;
+
+	double  _W_ = 0;
+	double  _SumOmegaI = 0;
+	double  _MSi = 0;
+	double  _UiS = 0;
+	double	_gUi = 0;
+
+	for (int i = 0; i < N; ++i)
+		_SumOmegaI += omega[i];
+
+	_W_ = 0;
 	for (int i = 0; i < N; ++i) {
-		double s = 0;
+		if ((omega[i] < (*_DeviationDemand)[i]))
+		{
+			abort();
+		}
+		_UiS = 0;
 		for (int j = 0; j < S; ++j) {
-			if (*_DesignVariant[j]) {
-				s += K[i][index[j]][*_DesignVariant[j] - 1];
+			if ((*_DesignVariant)[j]) {
+				_UiS += K[i][index[j]][(*_DesignVariant)[j] - 1];
 			}
 		}
-		z += omega[i] * (1 - exp(-lambda * (s + UC[i]))) * (s / (s + UC[i]));
+		_MSi = (_UiS / (_UiS + UC[i]));
+		_gUi = (1 - exp(-lambda * (_UiS + UC[i])));
+		_W_ += (omega[i] - (*_DeviationDemand)[i]) * _gUi * _MSi;
 	}
 
-
-
-
-	*_CaptureShare = objective_function(*_DesignVariant);
+	(*_RobustRadius) = (_W_ * _SumOmegaI - this->W) / (N * _W_);
+	(*_CaptureShare) = _W_;
 
 	return SolutionFound;
 }
@@ -201,6 +221,7 @@ void CFLDProblem::print_problem(){
 	cout << "B =\t" << B << endl;
 	cout << "beta =\t" << beta << endl;
 	cout << "lambda =" << lambda << endl;
+	cout << "W =" << W << endl;
 	cout << "filename = " << filename << endl;
 }
 

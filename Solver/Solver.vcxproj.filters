@@ -150,6 +150,12 @@
     <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPRandomOpenRandom.h">
       <Filter>Problems\CompetitiveFacilityLocationDesignProblem</Filter>
     </ClInclude>
+    <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPDeviationDemandMutation.h">
+      <Filter>Problems\CompetitiveFacilityLocationDesignProblem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPMutation.h">
+      <Filter>Problems\CompetitiveFacilityLocationDesignProblem</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Problems\MachineLineProblem\Buffer.cpp">
@@ -241,6 +247,12 @@
       <Filter>Problems\CompetitiveFacilityLocationDesignProblem</Filter>
     </ClCompile>
     <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPRandomOpenRandom.cpp">
+      <Filter>Problems\CompetitiveFacilityLocationDesignProblem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPDeviationDemandMutation.cpp">
+      <Filter>Problems\CompetitiveFacilityLocationDesignProblem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPMutation.cpp">
       <Filter>Problems\CompetitiveFacilityLocationDesignProblem</Filter>
     </ClCompile>
   </ItemGroup>

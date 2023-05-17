@@ -64,6 +64,7 @@ public:
 	int getB();
 	int getN();
 	int getS();
+	int getw(int);
 
 	// Унаследовано через ISolver
 	virtual SolverResult eSolve(void*, ...) override;

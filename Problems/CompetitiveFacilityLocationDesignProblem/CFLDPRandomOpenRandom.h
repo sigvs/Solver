@@ -21,7 +21,7 @@ private:
   void operator = (const CFLDPRandomOpenRandom&);
   virtual ~CFLDPRandomOpenRandom();
 
-  void SetS(int p);
+  void SetVariantParametr(int p);
 
   virtual SolverResult eSolve(void*, ...);
 

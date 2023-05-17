@@ -6,7 +6,7 @@
 #include "CFLDProblem.h"
 using namespace std;
 
-class CFLDPSolution :public IterationSolution, IArray<long>
+class CFLDPSolution :public IterationSolution
 {
     protected:
         int _Size;
@@ -30,6 +30,7 @@ class CFLDPSolution :public IterationSolution, IArray<long>
 		virtual int GetSize()const;
 
         int& DesignVariant(int);
+        int& DeviationDemand(int);
 
         double CaptureShare()const;
         double RobustRadius()const;
@@ -53,9 +54,5 @@ class CFLDPSolution :public IterationSolution, IArray<long>
         virtual void Copy(const void*);
 		virtual void* Clone()const;
 
-        // Унаследовано через IArray
-        virtual long GetElement(size_t i) override;
-        virtual void SetElement(size_t i, long v) override;
-        virtual size_t GetElementCount();
 };
 #endif

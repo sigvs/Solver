@@ -149,6 +149,8 @@
     <ClInclude Include="..\Interface\IGenerative.h" />
     <ClInclude Include="..\Interface\IRemoveable.h" />
     <ClInclude Include="..\Interface\ISolver.h" />
+    <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPDeviationDemandMutation.h" />
+    <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPMutation.h" />
     <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPPopulationList.h" />
     <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPRandomOpenRandom.h" />
     <ClInclude Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDProblem.h" />
@@ -180,6 +182,8 @@
     <ClCompile Include="..\Algoithms\GA\OnePointCrossover.cpp" />
     <ClCompile Include="..\Algoithms\MemeticGA\MemeticGA.cpp" />
     <ClCompile Include="..\Algoithms\SEMO\IncreasePopulationIfNotWorse.cpp" />
+    <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPDeviationDemandMutation.cpp" />
+    <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPMutation.cpp" />
     <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPPopulationList.cpp" />
     <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDPRandomOpenRandom.cpp" />
     <ClCompile Include="..\Problems\CompetitiveFacilityLocationDesignProblem\CFLDProblem.cpp" />

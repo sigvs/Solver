@@ -22,19 +22,9 @@ SolverResult CFLDPRandomOpenRandom::eSolve(void* x_, ...)
  {
     void** x= &x_;
 	CFLDProblem* problem = (CFLDProblem*)(x[0]);
-	EvolutionalAlgorithm* solver = (EvolutionalAlgorithm*)(x[1]);
+	CFLDPSolution* solution = (CFLDPSolution*)(x[1]);
 
-	for (size_t i = 0; i < solver->pChildren->GetPopulationSize(); i++)
-	{
-		CFLDPSolution* Child = (CFLDPSolution*)(solver->pChildren->pGetIndividPoint(i));
-
-		next(Child);
-
-		Child->tTime = (clock() - solver->tGetBeginTime());
-		Child->uIterationNumber = solver->iGetCurrentIteration();
-
-		solver->pChildren->pGetIndividPoint(i)->SetValue(problem);
-	}
+	next(solution);
 
 	return SolutionFound; 
  };
@@ -44,7 +34,7 @@ int CFLDPRandomOpenRandom::uniform(int a, int b)
 	return a + std::rand() % (b - a + 1);
 }
 //************************************************************************************************
-void CFLDPRandomOpenRandom::SetS(int p)
+void CFLDPRandomOpenRandom::SetVariantParametr(int p)
 {
 	_S = p;
 }
@@ -76,3 +66,4 @@ bool CFLDPRandomOpenRandom::next(CFLDPSolution* s)
 	s->DesignVariant(__open) += __dr;
 	return true;
 }
+//************************************************************************************************
