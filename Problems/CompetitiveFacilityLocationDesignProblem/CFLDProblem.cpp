@@ -181,13 +181,15 @@ SolverResult CFLDProblem::eSolve(void* x_, ...)
 
 	double  _W_ = 0;
 	double  _SumOmegaI = 0;
+	int _MinGamma = 0;
 	double  _MSi = 0;
 	double  _UiS = 0;
 	double	_gUi = 0;
 
 	for (int i = 0; i < N; ++i)
 		_SumOmegaI += omega[i];
-
+	bool b = false;
+	_MinGamma = _MAX_INT_DIG;
 	_W_ = 0;
 	for (int i = 0; i < N; ++i) {
 		if ((omega[i] < (*_DeviationDemand)[i]))
@@ -195,17 +197,23 @@ SolverResult CFLDProblem::eSolve(void* x_, ...)
 			abort();
 		}
 		_UiS = 0;
+		b = false;
 		for (int j = 0; j < S; ++j) {
 			if ((*_DesignVariant)[j]) {
 				_UiS += K[i][index[j]][(*_DesignVariant)[j] - 1];
+				b = true;
 			}
 		}
+		if (_MinGamma > (*_DeviationDemand)[i] && b)
+			_MinGamma = (*_DeviationDemand)[i];
+
 		_MSi = (_UiS / (_UiS + UC[i]));
 		_gUi = (1 - exp(-lambda * (_UiS + UC[i])));
 		_W_ += (omega[i] - (*_DeviationDemand)[i]) * _gUi * _MSi;
 	}
 
-	(*_RobustRadius) = (_W_ * _SumOmegaI - this->W) / (N * _W_);
+	//(*_RobustRadius) = (_W_ * _SumOmegaI - this->W) / (N * _W_);
+	(*_RobustRadius) = _MinGamma;
 	(*_CaptureShare) = _W_;
 
 	return SolutionFound;

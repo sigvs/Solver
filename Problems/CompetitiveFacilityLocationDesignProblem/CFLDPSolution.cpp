@@ -103,6 +103,7 @@ void CFLDPSolution::Generate(void* x_, ...)
 	for (int i = 0; i < problem->getN(); i++)
 	{
 		this->DeviationDemand(i) = rand() % (problem->getw(i) + 1);
+		//this->DeviationDemand(i) = problem->getw(i);
 	}
 
 
@@ -199,27 +200,28 @@ void CFLDPSolution::Copy(const void*x)
 //************************************************************************************************/
 ofstream& operator <<(ofstream& out , CFLDPSolution& x)
 {
-	out << setw(7) << left << setprecision(4) << x.CaptureShare() << "; ";
+	out << x.RobustRadius() << ";" << x.CaptureShare() << ";";
 	if (x._Size > 0)
 	{
 		for (int i = 0; i < x._Size; i++)
-			out << left << std::setw(3) << x.DesignVariant(i) << ";";
+			out << x.DesignVariant(i) << ";";
 		for (int i = 0; i < x._Size; i++)
-			out << left << std::setw(3) << x.DeviationDemand(i) << ";";
+			out << x.DeviationDemand(i) << ";";
+
 	}
 	out << endl;
-  return out;
+	return out;
 }
 //************************************************************************************************/
 ostream& operator <<(ostream& out , CFLDPSolution& x)
 {
-	out << setw(7) << left << setprecision(4) << x.CaptureShare() << "; ";
+	out << x.RobustRadius() << ";" << x.CaptureShare() << ";";
 	if (x._Size > 0)
 	{
 		for (int i = 0; i < x._Size; i++)
-			out << left << std::setw(3) << x.DesignVariant(i) << ";";
+			out << x.DesignVariant(i) << ";";
 		for (int i = 0; i < x._Size; i++)
-			out << left << std::setw(3) << x.DeviationDemand(i) << ";";
+			out << x.DeviationDemand(i) << ";";
 
 	}
 	out << endl;
