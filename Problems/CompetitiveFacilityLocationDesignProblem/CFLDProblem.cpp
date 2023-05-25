@@ -20,8 +20,10 @@ CFLDProblem::CFLDProblem(const CFLDProblem &CFLDProblem){
 	attr.resize(N);
 	initial_r.resize(N);
 	is_mine.resize(N);
+	_SumOmegaI = 0;
 	for (int i = 0; i < N; ++i) {
 		omega[i] = CFLDProblem.omega[i];
+		_SumOmegaI += omega[i];
 	}
 
 	S = CFLDProblem.S;
@@ -87,8 +89,10 @@ CFLDProblem& CFLDProblem::operator=(const CFLDProblem &CFLDProblem){
 	attr.resize(N);
 	initial_r.resize(N);
 	is_mine.resize(N);
+	_SumOmegaI = 0;
 	for (int i = 0; i < N; ++i) {
 		omega[i] = CFLDProblem.omega[i];
+		_SumOmegaI += omega[i];
 	}
 
 	S = CFLDProblem.S;
@@ -180,14 +184,11 @@ SolverResult CFLDProblem::eSolve(void* x_, ...)
 
 
 	double  _W_ = 0;
-	double  _SumOmegaI = 0;
 	int _MinGamma = 0;
 	double  _MSi = 0;
 	double  _UiS = 0;
 	double	_gUi = 0;
 
-	for (int i = 0; i < N; ++i)
-		_SumOmegaI += omega[i];
 	bool b = false;
 	_MinGamma = _MAX_INT_DIG;
 	_W_ = 0;
@@ -242,8 +243,10 @@ void CFLDProblem::read_problem(ifstream& in)
 	attr.resize(N);
 	initial_r.resize(N);
 	is_mine.resize(N);
+	_SumOmegaI = 0;
 	for (int i = 0; i < N; ++i) {
 		in >> omega[i];
+		_SumOmegaI += omega[i];
 	}
 
 	in >> S;

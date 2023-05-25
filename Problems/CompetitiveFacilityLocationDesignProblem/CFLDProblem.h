@@ -39,6 +39,7 @@ private:
 	iVector			initial_r;//используется для сортировки
 	iVector			is_mine;//возможно открытие предприятия, никем не занятые
 	iVector			index;	// original index
+	double          _SumOmegaI;
 	bool 			verbose = true;
 	int 			R = 3;
 	iVector			upper_bound_fv;
