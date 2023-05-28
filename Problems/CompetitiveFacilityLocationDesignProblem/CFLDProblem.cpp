@@ -189,8 +189,15 @@ SolverResult CFLDProblem::eSolve(void* x_, ...)
 	double  _UiS = 0;
 	double	_gUi = 0;
 
-	bool b = false;
 	_MinGamma = _MAX_INT_DIG;
+	for (int i = 0; i < S; i++)
+	{
+		if (_DesignVariant->operator[](index[i]) > 0)
+			if (_MinGamma > _DeviationDemand->operator[](index[i]))
+				_MinGamma = _DeviationDemand->operator[](index[i]);
+	}
+
+
 	_W_ = 0;
 	for (int i = 0; i < N; ++i) {
 		if ((omega[i] < (*_DeviationDemand)[i]))
@@ -198,15 +205,11 @@ SolverResult CFLDProblem::eSolve(void* x_, ...)
 			abort();
 		}
 		_UiS = 0;
-		b = false;
 		for (int j = 0; j < S; ++j) {
 			if ((*_DesignVariant)[j]) {
 				_UiS += K[i][index[j]][(*_DesignVariant)[j] - 1];
-				b = true;
 			}
 		}
-		if (_MinGamma > (*_DeviationDemand)[i] && b)
-			_MinGamma = (*_DeviationDemand)[i];
 
 		_MSi = (_UiS / (_UiS + UC[i]));
 		_gUi = (1 - exp(-lambda * (_UiS + UC[i])));

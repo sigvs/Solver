@@ -69,40 +69,37 @@ void CFLDPSolution::Generate(void* x_, ...)
 	CFLDProblem* problem = (CFLDProblem*)(hx[0]);
 	this->SetSize(problem->getN());
 
-	int b = problem->getB(), n = problem->getS();
-	int k3 = std::min(b / 3, n);
-	for (int i = 0; i < k3; ++i) {
-		this->_DesignVariant[i] = 3;
-	}
-	b -= 3 * k3;
-	n -= k3;
-	if (n <= 0) {
-		return;
-	}
-	int k2 = std::min(b / 2, n);
-	for (int i = 0; i < k2; ++i) {
-		this->_DesignVariant[k3 + i] = 2;
-	}
-	b -= 2 * k2;
-	n -= k2;
-	if (n <= 0) {
-		return;
-	}
-	int k1 = std::min(b, n);
-	for (int i = 0; i < k1; ++i) {
-		this->_DesignVariant[k3 + k2 + i] = 1;
-	}
-	n -= k1;
-	if (n <= 0) {
-		return;
-	}
-	for (int i = k1 + k2 + k3; i < problem->getS(); ++i) {
-		this->_DesignVariant[i] = 0;
+	int b = problem->getB(), 
+		n = problem->getS();
+
+	iVector indx = problem->getIndex();
+	iVector index_tmp;
+	for (int i = 0; i < indx.size(); i++)
+		index_tmp.push_back(indx[i]);
+
+	int in_tmp,vr_tmp;
+	while (b > 0)
+	{
+		if (index_tmp.size() == 1)
+		{
+			this->_DesignVariant[index_tmp[0]] = std::min(b, 3);
+			break;
+		}
+		else
+		{
+			in_tmp = rand() % index_tmp.size();
+			vr_tmp = rand() % (std::min(b, 3) + 1);
+			this->_DesignVariant[index_tmp[in_tmp]] = vr_tmp;
+			b -= vr_tmp;
+			auto pointer = index_tmp.cbegin() + in_tmp;
+			index_tmp.erase(pointer, pointer + 1);
+		}
 	}
 
-	for (int i = 0; i < problem->getN(); i++)
+	for (int i = 0; i < problem->getS(); i++)
 	{
-		this->DeviationDemand(i) = rand() % (problem->getw(i) + 1);
+		if(this->_DesignVariant[problem->getIndex()[i]] > 0)
+			this->DeviationDemand(problem->getIndex()[i]) = rand() % (problem->getw(problem->getIndex()[i]) + 1);
 		//this->DeviationDemand(i) = problem->getw(i);
 	}
 
@@ -177,7 +174,7 @@ bool CFLDPSolution::bIdentical(void* x)const
 	if(_Size!=y->_Size)return false;
 	else
 		for(int i=0;i< _Size;i++)
-			if(_DesignVariant[i]!=y->DesignVariant(i) && _DeviationDemand[i]!=y->DeviationDemand(i))return false;
+			if(_DesignVariant[i]!=y->DesignVariant(i) || _DeviationDemand[i]!=y->DeviationDemand(i))return false;
 	return true;
 };
 //************************************************************************************************/

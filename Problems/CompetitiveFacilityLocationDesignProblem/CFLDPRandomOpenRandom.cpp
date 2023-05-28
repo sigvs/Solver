@@ -24,7 +24,7 @@ SolverResult CFLDPRandomOpenRandom::eSolve(void* x_, ...)
 	CFLDProblem* problem = (CFLDProblem*)(x[0]);
 	CFLDPSolution* solution = (CFLDPSolution*)(x[1]);
 
-	next(solution);
+	next(problem,solution);
 
 	return SolutionFound; 
  };
@@ -39,12 +39,13 @@ void CFLDPRandomOpenRandom::SetVariantParametr(int p)
 	_S = p;
 }
 //************************************************************************************************
-bool CFLDPRandomOpenRandom::next(CFLDPSolution* s)
+bool CFLDPRandomOpenRandom::next(CFLDProblem* problem, CFLDPSolution* s)
 {
 	iVector openable;
 	for (int i = 0; i < _S; ++i) {
-		if (s->DesignVariant(i) < 3) {
-			openable.push_back(i);
+		int ind = problem->getIndex()[i];
+		if (s->DesignVariant(ind) < 3) {
+			openable.push_back(ind);
 		}
 	}
 	if (openable.empty()) {
@@ -52,8 +53,9 @@ bool CFLDPRandomOpenRandom::next(CFLDPSolution* s)
 	}
 	iVector closeable;
 	for (int i = 0; i < _S; ++i) {
-		if (s->DesignVariant(i) > 0) {
-			closeable.push_back(i);
+		int ind = problem->getIndex()[i];
+		if (s->DesignVariant(ind) > 0) {
+			closeable.push_back(ind);
 		}
 	}
 	if (closeable.empty()) {

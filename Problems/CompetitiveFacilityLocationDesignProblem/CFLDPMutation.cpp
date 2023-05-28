@@ -37,7 +37,7 @@ SolverResult CFLDPMutation::eSolve(void* x_, ...)
 		Child->tTime = (clock() - solver->tGetBeginTime());
 		Child->uIterationNumber = solver->iGetCurrentIteration();
 
-		solver->pChildren->pGetIndividPoint(i)->SetValue(problem);
+		Child->SetValue(problem);
 	}
 
 	return SolutionFound; 

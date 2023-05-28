@@ -14,7 +14,7 @@ private:
  protected:
   int _S;
   int uniform(int a, int b);
-  bool next(CFLDPSolution* s);
+  bool next(CFLDProblem* problem, CFLDPSolution* s);
  public:
 	 CFLDPRandomOpenRandom();
 	 CFLDPRandomOpenRandom(const CFLDPRandomOpenRandom&);
